@@ -11,4 +11,5 @@ plugins {
 }
 
 rootProject.name = 'multi-module'
-include('app')
+include('data')
+include('service')
