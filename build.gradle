@@ -24,6 +24,9 @@ subprojects {
         }
     }
 
+    // 버전 지정
+    version = "1.0.0"
+
     apply plugin: 'application'
 
     repositories {
@@ -49,5 +52,10 @@ subprojects {
     application {
         // Define the main class for the application.
         mainClass = 'org.example.App'
+    }
+}
+project(":service"){
+    dependencies {
+        implementation project(":data")
     }
 }
