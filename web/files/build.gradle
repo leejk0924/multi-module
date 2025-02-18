@@ -1,7 +1,0 @@
-
-dependencies{
-    // implementation 을 사용하면 web 에서만 sp-files 사용가능하고
-    // web을 implementation 한 server 는 sp-files 사용 불가
-    api(project(":sp-files"))
-    // api 는 java-library 플러그인 사용했을 경우 사용 가능
-}
