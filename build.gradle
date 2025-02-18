@@ -1,0 +1,53 @@
+// task getProjectName {
+//     // Gradle 8.x 에서 Configuration Cache 활성화 하면, prject 접근이 제한됨
+//     def projectName = project.name
+//     doLast() {
+//         println projectName
+//     }
+// }
+
+// allprojects{
+//     task getProjectName {
+//         // Gradle 8.x 에서 Configuration Cache 활성화 하면, prject 접근이 제한됨
+//         def projectName = project.name
+//         doLast() {
+//             println projectName
+//         }
+//     }
+// }
+
+subprojects {
+    task getProjectName {
+        def projectName = project.name
+        doLast() {
+            println projectName
+        }
+    }
+
+    apply plugin: 'application'
+
+    repositories {
+        // Use Maven Central for resolving dependencies.
+        mavenCentral()
+    }
+
+    dependencies {
+        // Use JUnit test framework.
+        testImplementation libs.junit
+
+        // This dependency is used by the application.
+        implementation libs.guava
+    }
+
+    // Apply a specific Java toolchain to ease working on different environments.
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(11)
+        }
+    }
+
+    application {
+        // Define the main class for the application.
+        mainClass = 'org.example.App'
+    }
+}
